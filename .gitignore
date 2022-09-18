@@ -1,0 +1,8 @@
+*.idea/
+*/target/*
+*.idea/
+*.log
+*/target/
+/client-server-feign/client/target/
+/client-server-feign/api/target/
+/client-server-feign/server/target/

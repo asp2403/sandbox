@@ -1,0 +1,4 @@
+server:
+  port: 8081
+feign:
+  url: localhost:8080
