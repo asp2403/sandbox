@@ -11,7 +11,7 @@ import java.util.List;
 public class Book {
     @Id
     @Column("id_book")
-    private long id;
+    private Long id;
 
     private String title;
 

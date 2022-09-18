@@ -5,7 +5,7 @@ import org.springframework.data.relational.core.mapping.Column;
 
 public class Comment {
 
-    @Id
+//    @Id
     @Column("id_comment")
     private Long id;
 
@@ -13,7 +13,6 @@ public class Comment {
     private String text;
 
     public Comment(String text) {
-        this.id = null;
         this.text = text;
     }
 
