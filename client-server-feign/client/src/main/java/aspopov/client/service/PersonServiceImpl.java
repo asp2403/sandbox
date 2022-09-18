@@ -1,17 +1,17 @@
 package aspopov.client.service;
 
 import aspopov.api.dto.PersonDto;
-import aspopov.api.client.PersonServiceClient;
-import aspopov.api.service.PersonService;
+import aspopov.api.contract.PersonServiceContract;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class PersonServiceImpl implements PersonService {
-    private final PersonServiceClient personServiceClient;
+public class PersonServiceImpl implements aspopov.client.service.PersonService {
+    private final PersonServiceContract personServiceClient;
 
-    public PersonServiceImpl(PersonServiceClient personServiceClient) {
+    public PersonServiceImpl(PersonServiceContract personServiceClient) {
         this.personServiceClient = personServiceClient;
     }
 

@@ -1,7 +1,7 @@
 package aspopov.client.rest;
 
 import aspopov.api.dto.PersonDto;
-import aspopov.api.service.PersonService;
+import aspopov.client.service.PersonService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 

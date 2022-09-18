@@ -1,7 +1,6 @@
 package aspopov.server.service;
 
 import aspopov.api.dto.PersonDto;
-import aspopov.api.service.PersonService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

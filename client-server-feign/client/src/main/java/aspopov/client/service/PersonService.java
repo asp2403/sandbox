@@ -1,8 +1,9 @@
-package aspopov.api.service;
+package aspopov.client.service;
 
-import aspopov.api.dto.PersonDto;
+
 
 import java.util.List;
+import aspopov.api.dto.PersonDto;
 
 public interface PersonService {
     List<PersonDto> getPersons();

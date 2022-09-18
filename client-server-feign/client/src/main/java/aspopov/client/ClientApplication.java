@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableFeignClients(basePackages = {"aspopov.api.client"})
+@EnableFeignClients(basePackages = {"aspopov.api.contract"})
 public class ClientApplication {
 
 	public static void main(String[] args) {
