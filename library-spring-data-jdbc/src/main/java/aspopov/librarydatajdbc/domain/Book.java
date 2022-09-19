@@ -21,7 +21,7 @@ public class Book {
     @Column("id_genre")
     AggregateReference<Genre, Long> genre;
 
-    @MappedCollection(idColumn = "id_book", keyColumn = "id_comment")
+    @MappedCollection(idColumn = "id_book", keyColumn = "comment_no")
     List<Comment> comments = new ArrayList<>();
 
     public void addComment(String commentText) {

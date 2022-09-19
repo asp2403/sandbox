@@ -5,18 +5,32 @@ import org.springframework.data.relational.core.mapping.Column;
 
 public class Comment {
 
-//    @Id
+    @Id
     @Column("id_comment")
     private Long id;
 
     @Column("comment_text")
     private String text;
 
+    private int commentNo;
+
     public Comment(String text) {
         this.text = text;
     }
 
     public Comment() {
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public int getCommentNo() {
+        return commentNo;
+    }
+
+    public void setCommentNo(int commentNo) {
+        this.commentNo = commentNo;
     }
 
     public long getId() {
