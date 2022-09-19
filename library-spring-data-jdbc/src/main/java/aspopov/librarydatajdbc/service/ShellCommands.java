@@ -40,8 +40,18 @@ public class ShellCommands {
         return bookService.addComment(bookId, commentText);
     }
 
+    @ShellMethod(value = "Delete Comment", key = {"del-comment", "dc"})
+    String deleteComment(long bookId, int commentIndex) {
+        return bookService.deleteComment(bookId, commentIndex - 1);
+    }
+
     @ShellMethod(value = "Add Book", key = {"add-book", "ab"})
     String addBook(long idAuthor, long idGenre, String title) {
         return bookService.addBook(idAuthor, idGenre, title);
+    }
+
+    @ShellMethod(value = "Delete Book", key = {"del-book", "db"})
+    String deleteBook(long idBook) {
+        return bookService.deleteBook(idBook);
     }
 }

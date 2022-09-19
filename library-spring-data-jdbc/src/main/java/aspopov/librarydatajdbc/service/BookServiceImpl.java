@@ -68,4 +68,44 @@ public class BookServiceImpl implements BookService {
             return bookConverter.convertToString(b);
         }).orElse("Книга не найдена!");
     }
+
+    @Override
+    @Transactional
+    public String deleteComment(long bookId, int commentIndex) {
+        var book = bookRepository.findById(bookId);
+        try {
+            return book.map(b -> {
+                b.getComments().remove(commentIndex);
+                b = bookRepository.save(b);
+                return bookConverter.convertToString(b);
+            }).orElse("Книга не найдена!");
+        } catch (IndexOutOfBoundsException e) {
+            return "Неправильный индекс";
+        }
+    }
+
+    @Override
+    public String deleteBook(long bookId) {
+        try {
+            var book = bookRepository.findById(bookId).orElseThrow();
+            bookRepository.delete(book);
+            return "Книга удалена";
+        } catch (Exception e) {
+            return "Книга не найдена";
+        }
+    }
+
+    @Override
+    public String updateBook(long idBook, long idAuthor, long idGenre, String title) {
+        try {
+            var book = bookRepository.findById(idBook).orElseThrow();
+            book.setAuthor(AggregateReference.to(idAuthor));
+            book.setGenre(AggregateReference.to(idGenre));
+            book.setTitle(title);
+            book = bookRepository.save(book);
+            return bookConverter.convertToString(book);
+        } catch (Exception e) {
+            return "Книга не найдена";
+        }
+    }
 }
