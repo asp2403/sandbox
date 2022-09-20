@@ -3,3 +3,7 @@
 ## client-server-feign
 
 Клиент-серверное приложение с разделяемой библиотекой на Feign
+
+## library-spring-data-jdbc
+
+Приложение на Spring Data JDBC
