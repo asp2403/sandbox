@@ -44,18 +44,20 @@ public class BookServiceImpl implements BookService {
     @Override
     @Transactional
     public String addBook(long idAuthor, long idGenre, String title) {
-        try {
-            var author = authorRepository.findById(idAuthor).orElseThrow();
-            var genre = genreRepository.findById(idGenre).orElseThrow();
-            var book = new Book();
-            book.setTitle(title);
-            book.setAuthor(AggregateReference.to(idAuthor));
-            book.setGenre(AggregateReference.to(idGenre));
-            book = bookRepository.save(book);
-            return bookConverter.convertToString(book);
-        } catch (Exception e) {
-            return "Автор или жанр не найдены!";
+        if (!authorRepository.existsById(idAuthor)) {
+            return "Автор не найден!";
         }
+        if (!genreRepository.existsById(idGenre)) {
+            return "Жанр не найден!";
+        }
+        var author = authorRepository.findById(idAuthor).orElseThrow();
+        var genre = genreRepository.findById(idGenre).orElseThrow();
+        var book = new Book();
+        book.setTitle(title);
+        book.setAuthor(AggregateReference.to(idAuthor));
+        book.setGenre(AggregateReference.to(idGenre));
+        book = bookRepository.save(book);
+        return bookConverter.convertToString(book);
     }
 
     @Override
@@ -80,23 +82,29 @@ public class BookServiceImpl implements BookService {
                 return bookConverter.convertToString(b);
             }).orElse("Книга не найдена!");
         } catch (IndexOutOfBoundsException e) {
-            return "Неправильный индекс";
+            return "Комментарий не найден!";
         }
     }
 
     @Override
+    @Transactional
     public String deleteBook(long bookId) {
-        try {
-            var book = bookRepository.findById(bookId).orElseThrow();
-            bookRepository.delete(book);
-            return "Книга удалена";
-        } catch (Exception e) {
-            return "Книга не найдена";
+        if (!bookRepository.existsById(bookId)) {
+            return "Книга не найдена!";
         }
+        bookRepository.deleteById(bookId);
+        return "Книга удалена";
     }
 
     @Override
+    @Transactional
     public String updateBook(long idBook, long idAuthor, long idGenre, String title) {
+        if (!authorRepository.existsById(idAuthor)) {
+            return "Автор не найден!";
+        }
+        if (!genreRepository.existsById(idGenre)) {
+            return "Жанр не найден!";
+        }
         try {
             var book = bookRepository.findById(idBook).orElseThrow();
             book.setAuthor(AggregateReference.to(idAuthor));

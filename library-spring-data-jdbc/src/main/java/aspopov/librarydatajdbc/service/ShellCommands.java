@@ -50,6 +50,11 @@ public class ShellCommands {
         return bookService.addBook(idAuthor, idGenre, title);
     }
 
+    @ShellMethod(value = "Update Book", key = {"update-book", "ub"})
+    String updateBook(long idBook, long idAuthor, long idGenre, String title) {
+        return bookService.updateBook(idBook, idAuthor, idGenre, title);
+    }
+
     @ShellMethod(value = "Delete Book", key = {"del-book", "db"})
     String deleteBook(long idBook) {
         return bookService.deleteBook(idBook);
