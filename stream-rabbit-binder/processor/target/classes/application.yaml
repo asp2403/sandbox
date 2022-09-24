@@ -5,5 +5,5 @@ spring:
   cloud:
     stream:
       bindings:
-        output:
+        input:
           destination: mydestination

@@ -7,3 +7,7 @@
 ## library-spring-data-jdbc
 
 Приложение на Spring Data JDBC
+
+## stream-rabbit-binder
+
+Приложение на Stream RabbitMQ Binder

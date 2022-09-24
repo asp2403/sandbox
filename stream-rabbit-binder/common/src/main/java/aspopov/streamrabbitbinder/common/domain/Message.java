@@ -9,6 +9,9 @@ public class Message {
         this.msg = msg;
     }
 
+    public Message() {
+    }
+
     public MessageType getMessageType() {
         return messageType;
     }
