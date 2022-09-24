@@ -1,9 +1,0 @@
-spring:
-  rabbitmq:
-    addresses: "localhost"
-
-  cloud:
-    stream:
-      bindings:
-        input:
-          destination: mydestination

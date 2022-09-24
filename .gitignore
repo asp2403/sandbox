@@ -6,3 +6,5 @@
 /client-server-feign/client/target/
 /client-server-feign/api/target/
 /client-server-feign/server/target/
+/stream-rabbit-binder/common/target
+/stream-rabbit-binder/processor/target
