@@ -11,3 +11,7 @@
 ## stream-rabbit-binder
 
 Приложение на Stream RabbitMQ Binder
+
+## tcp-server-echo
+
+Tcp-сервер на Spring Boot и Netty
